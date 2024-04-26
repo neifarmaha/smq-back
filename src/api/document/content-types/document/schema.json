@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "documents",
+  "info": {
+    "singularName": "document",
+    "pluralName": "documents",
+    "displayName": "documents",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "documents"
+    },
+    "Ref": {
+      "type": "string"
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "departementType": {
+      "type": "component",
+      "repeatable": true,
+      "component": "type.type"
+    },
+    "departments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::department.department",
+      "mappedBy": "documents"
+    }
+  }
+}

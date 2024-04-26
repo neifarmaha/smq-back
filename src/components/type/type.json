@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_type_types",
+  "info": {
+    "displayName": "type"
+  },
+  "options": {},
+  "attributes": {
+    "departementType": {
+      "type": "enumeration",
+      "enum": [
+        "IT",
+        "HR",
+        "Software"
+      ]
+    }
+  }
+}

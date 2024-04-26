@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "departments",
+  "info": {
+    "singularName": "department",
+    "pluralName": "departments",
+    "displayName": "departments",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "departments"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::document.document",
+      "inversedBy": "departments"
+    },
+    "slug": {
+      "type": "enumeration",
+      "enum": [
+        "HR",
+        "IT",
+        "Quality_&_Security",
+        "Solution_Strategy",
+        "Business_Growth",
+        "Software_development",
+        "Expenses",
+        "CEO"
+      ]
+    }
+  }
+}

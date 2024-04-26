@@ -1,0 +1,118 @@
+{
+  "kind": "collectionType",
+  "collectionName": "up_users",
+  "info": {
+    "name": "user",
+    "description": "",
+    "singularName": "user",
+    "pluralName": "users",
+    "displayName": "User"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "username": {
+      "type": "string",
+      "minLength": 3,
+      "unique": true,
+      "configurable": false,
+      "required": false
+    },
+    "email": {
+      "type": "email",
+      "minLength": 6,
+      "configurable": false,
+      "required": true
+    },
+    "provider": {
+      "type": "string",
+      "configurable": false
+    },
+    "password": {
+      "type": "password",
+      "minLength": 6,
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "resetPasswordToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "confirmationToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "role": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.role",
+      "inversedBy": "users",
+      "configurable": false
+    },
+    "department": {
+      "type": "enumeration",
+      "enum": [
+        "Quality & Security",
+        "Solution Strategy",
+        "IT",
+        "HR",
+        "CEO",
+        "Expenses",
+        "Business Growth",
+        "Software Development"
+      ]
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::document.document",
+      "mappedBy": "users_permissions_users"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "departments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::department.department",
+      "mappedBy": "users_permissions_users"
+    },
+    "position": {
+      "type": "enumeration",
+      "enum": [
+        "member",
+        "head of department"
+      ]
+    },
+    "FirstName": {
+      "type": "string"
+    },
+    "LastName": {
+      "type": "string"
+    }
+  }
+}
